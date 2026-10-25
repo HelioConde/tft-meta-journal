@@ -1,34 +1,31 @@
 # TFT Meta Journal
 
-**Area:** TFT
-**Priority:** P2
-**Queue position:** #25
+**Ideia de produto independente para Teamfight Tactics: registrar composições, experimentos, patches e resultados pessoais.**
 
-Diario pessoal de comps, notas, patches e resultados de TFT.
+![Status](https://img.shields.io/badge/status-concepção-64748b)
 
-## Status
+## O problema que queremos resolver
 
-Idea registered in the **Ideias IA Lab** portfolio. This repository is the independent workspace for research, prototype and product development.
+Ferramentas genéricas mostram muitos números, mas nem sempre ajudam o jogador a transformar seu histórico ou suas anotações em uma próxima ação clara. O objetivo deste projeto é construir uma experiência especializada e fácil de usar.
 
-## First-version goal
+## Experiência proposta
 
-Build the smallest usable MVP that validates the central product idea before increasing scope.
+Anotar composições testadas, contexto e aprendizados por patch.
 
-## Minimum criteria before expanding
+## Estado atual
 
-- usable MVP;
-- main flow working;
-- usable on mobile;
-- authentication/data when needed;
-- QA for critical flows;
-- updated README;
-- working deploy;
-- explicit V2 backlog.
+**Somente planejamento:** nesta revisão, o repositório contém documentação, sem aplicação ou serviço executável. O fluxo descrito acima é **uma proposta**, não uma funcionalidade já entregue.
 
-## Organization
+## Primeiro marco
 
-Portfolio priority and decisions remain centralized at:
+Criar um formato simples de nota e histórico.
 
-https://github.com/HelioConde/ideias-ia-lab
+Antes de expandir, o MVP deve demonstrar seu fluxo principal, funcionar em dispositivos móveis e ter testes básicos. Integrações, autenticação e persistência serão decididas conforme a necessidade real, sem prometer suporte antecipadamente.
 
-Product code must stay in this repository, not in the Lab.
+## Portfólio e referências
+
+Este experimento integra o [Ideias IA Lab](https://github.com/HelioConde/ideias-ia-lab). O código do produto deve permanecer neste repositório quando o desenvolvimento começar.
+
+> Teamfight Tactics e seus elementos pertencem aos respectivos titulares. Este é um projeto independente, não oficial.
+
+Autor: [Hélio Conde](https://github.com/HelioConde).
