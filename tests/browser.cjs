@@ -15,6 +15,18 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  const res=await page.goto("http://127.0.0.1:8771/",{waitUntil:"load"});
  if(res.status()!==200)errors.push("HTTP "+res.status());await page.getByRole("heading",{level:1}).waitFor();
  await auditAccessibility(page,errors);
+ const mobileMenu=page.locator("header details.mobile-nav");
+ if(page.viewportSize().width<=650){
+  if(!await mobileMenu.isVisible())errors.push("Notebook mobile menu hidden");
+  const summary=mobileMenu.locator("summary");await summary.focus();await page.keyboard.press("Enter");
+  if(!await mobileMenu.evaluate(el=>el.open))errors.push("Enter did not open notebook menu");
+  if(await mobileMenu.locator("nav a").count()!==3)errors.push("Notebook menu missing anchors");
+  await page.keyboard.press("Escape");if(await mobileMenu.evaluate(el=>el.open))errors.push("Escape did not close notebook menu");
+  await summary.click();const target=await mobileMenu.locator("nav a").first().getAttribute("href");await mobileMenu.locator("nav a").first().click();
+  if(await mobileMenu.evaluate(el=>el.open))errors.push("Notebook menu remained open after navigation");
+  if(await page.evaluate(()=>location.hash)!==target)errors.push("Notebook mobile anchor mismatch");
+ }else if(await mobileMenu.isVisible())errors.push("Notebook menu visible on desktop");
+
  const skip=page.locator("a.skip,a.skip-link");
  if(await skip.count()!==1)errors.push("Missing keyboard skip link");
  else{
