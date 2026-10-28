@@ -1,0 +1,12 @@
+/* Research notebook: purple ink and parchment jump menu. */
+.mobile-nav{display:none}
+@media(max-width:650px){
+header .nav{gap:8px}header .local-pill{display:none!important}header .brand{max-width:calc(100% - 66px);min-width:0}
+header .mobile-nav{display:block;position:relative;z-index:90;flex:none;margin-left:auto}
+header .mobile-nav summary{list-style:none;display:flex;align-items:center;justify-content:center;gap:6px;min-width:58px;min-height:48px;padding:8px;background:#614279;color:#fff8ed;border:2px solid #a68ab5;border-radius:3px;font:700 12px Georgia,serif;cursor:pointer}
+header .mobile-nav summary::-webkit-details-marker{display:none}header .mobile-nav summary::before{content:"☰";font-size:18px;line-height:1}header .mobile-nav[open] summary::before{content:"×";font-size:23px}
+header .mobile-nav .mobile-nav-panel{display:grid!important;position:absolute;right:0;top:calc(100% + 8px);z-index:91;width:min(265px,calc(100vw - 30px));padding:10px;background:#fffdf5;border:2px solid #ac93bc;border-radius:3px;box-shadow:5px 6px 0 #dfd0de}
+header .mobile-nav-panel a{display:flex;align-items:center;min-height:48px;padding:11px 13px;text-decoration:none;border-bottom:1px dashed #d1bdce;color:#50366b;font:750 14px Georgia,serif;white-space:normal}
+header .mobile-nav-panel a:hover{background:#f1e6f2}
+header .mobile-nav :is(summary,a):focus-visible{outline:3px solid #986238!important;outline-offset:3px}
+}
