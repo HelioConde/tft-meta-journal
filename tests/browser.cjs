@@ -1,4 +1,5 @@
 "use strict";
+const auditAccessibility=require("./accessibility-audit.cjs");
 const {chromium}=require("playwright"),{spawn}=require("node:child_process"),fs=require("node:fs");
 fs.mkdirSync("screenshots",{recursive:true});
 const server=spawn("python3",["-m","http.server","8771","--bind","127.0.0.1"],{stdio:"ignore"});
@@ -13,6 +14,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  try{
  const res=await page.goto("http://127.0.0.1:8771/",{waitUntil:"load"});
  if(res.status()!==200)errors.push("HTTP "+res.status());await page.getByRole("heading",{level:1}).waitFor();
+ await auditAccessibility(page,errors);
  const skip=page.locator("a.skip,a.skip-link");
  if(await skip.count()!==1)errors.push("Missing keyboard skip link");
  else{

@@ -32,3 +32,6 @@ Cada experimento apresenta três etapas visuais: `01 Hipótese inicial`, `02 Obs
 
 ## Auditoria de capturas reais Playwright (28/10/2026)
 Leitura da capa do caderno corrigida: camada de papel quase opaca protege o título e parágrafos contra as pautas decorativas. Cabeçalho compacto no mobile e link `Pular para o conteúdo` totalmente recortado fora de foco, revelado ao navegar por teclado. Incluído QA de foco do atalho e mantidos testes das fichas de experimentos.
+
+## Accessibility QA (28/10/2026)
+Playwright verifica navegação Tab/Shift+Tab, skip link com foco no main, contraste de texto e placeholders nos campos (4,5:1), rótulos e tamanho mínimo de 44px. Estilo independente em `a11y.css`, mantém o papel pautado e a camada de leitura. Não equivale a certificação integral de WCAG.
