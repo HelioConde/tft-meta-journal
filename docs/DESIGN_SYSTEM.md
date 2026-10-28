@@ -38,3 +38,6 @@ Playwright verifica navegação Tab/Shift+Tab, skip link com foco no main, contr
 
 ## Navegação mobile do caderno
 Menu pergaminho e tinta violeta com atalhos para Experimentos, Resultados por patch e Nova hipótese, ativo até 650px. Details/summary nativo, teclado Enter/Escape e fechamento por clique em link ou fora. Testado em cinco resoluções sem modificar dados e backups.
+
+## Atalhos desktop por produto
+Menu de desktop: Experimentos, Por patch, Nova hipótese. IDs e navegação auditados no Playwright; cabeçalho intermediário libera espaço ocultando badge decorativo. Identidade original preservada e menu móvel independente.
