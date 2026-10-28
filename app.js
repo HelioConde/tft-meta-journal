@@ -45,7 +45,13 @@ function card(r){
  for(const f of fields.filter(f=>f.key!==C.titleField&&f.kind!=="textarea")){
   const div=node("div","meta-item");div.append(node("dt","",f.label),node("dd","",r[f.key]));meta.append(div);
  }article.append(meta);
- for(const f of fields.filter(f=>f.kind==="textarea")){const d=node("div","record-note");d.append(node("strong","",f.label),node("p","",r[f.key]||"Não informado."));article.append(d);}
+ const sequence=node("div","experiment-flow");
+ for(const [i,key,title] of [[1,"hypothesis","Hipótese inicial"],[2,"observation","Observações do lobby"],[3,"next","Próximo teste"]]){
+  const part=node("section","experiment-step");part.dataset.step=String(i);
+  const label=node("div","experiment-step-title");label.append(node("span","experiment-number",String(i).padStart(2,"0")),node("strong","",title));
+  part.append(label,node("p","",r[key]));sequence.append(part);
+ }
+ article.append(sequence);
  const controls=node("div","record-buttons");
  for(const [action,label] of [["edit","Editar"],["delete","Excluir"]]){
   const b=node("button",action==="delete"?"warn":"",label);b.type="button";b.dataset.action=action;b.dataset.id=r.id;controls.append(b);

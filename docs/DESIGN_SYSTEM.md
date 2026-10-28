@@ -26,3 +26,6 @@ Workflow GitHub Actions executa validação estática e Playwright 5 resoluçõe
 
 ## Experiência exclusiva — caderno de laboratório
 Visual de caderno de pesquisa: folhas pautadas, identificação de experimento, tipografia serifada e fichas de hipóteses. Layout intencionalmente diferente do quadro Kanban, álbum colecionável e planilha financeira.
+
+## Fluxo científico da ficha
+Cada experimento apresenta três etapas visuais: `01 Hipótese inicial`, `02 Observações do lobby` e `03 Próximo teste`. Dados manuais e inseridos via `textContent`. Fichas não prometem causalidade nem métricas oficiais. Playwright verifica a sequência por registro.

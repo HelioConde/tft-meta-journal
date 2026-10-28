@@ -18,6 +18,8 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  await page.getByRole("button",{name:"Carregar exemplos fictícios"}).click();
  if(await entries.count()!==expected)errors.push("Demo load incorrect");
  await page.reload();if(await entries.count()!==expected)errors.push("Persistence failed");
+ if(await page.locator("#entries .experiment-flow").count()!==expected)errors.push("Experiment flow missing");
+ if(await page.locator("#entries .experiment-step").count()!==expected*3)errors.push("Experiment pipeline must show hypothesis, observation, next test");
  const first=entries.first();await first.getByRole("button",{name:"Editar"}).click();
  const field=page.locator("#field-"+await page.locator("body").getAttribute("data-first-field"));
  const current=await field.inputValue();
