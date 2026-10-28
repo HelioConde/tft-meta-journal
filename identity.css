@@ -14,3 +14,10 @@ header{background:#fffdf6;border-bottom:3px solid #725589}.nav{min-height:83px}.
 
 /* Three-stage research log: hypothesis -> observation -> next test */
 .experiment-flow{display:grid;gap:0;margin-top:6px;padding:4px 0 0 4px;border-left:3px solid #ac93bc}.experiment-step{position:relative;padding:12px 0 16px 20px;min-width:0}.experiment-step+.experiment-step{border-top:1px dashed #d6c7d9}.experiment-step:before{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:#75548b;border:3px solid #fbf8f1;top:18px;left:-12px;box-shadow:0 0 0 1px #9d7ab4}.experiment-step-title{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.experiment-step-title strong{font:900 12px ui-monospace,monospace;color:#654879;text-transform:uppercase;letter-spacing:.04em}.experiment-number{font:800 11px ui-monospace,monospace;color:#8d6e96}.experiment-step p{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.6;margin:7px 0 0;color:#514a57}.experiment-step[data-step="3"]{background:#f3edf2}.experiment-step[data-step="3"] .experiment-step-title strong{color:#477260}
+
+/* Reviewed screenshot: prevent floating skip link from appearing over paper content. */
+.skip,.skip-link{top:0;left:12px;width:1px;height:1px;padding:0;border:0;overflow:hidden;white-space:nowrap;clip-path:inset(50%)}
+.skip:focus,.skip-link:focus{top:10px;width:auto;height:auto;padding:10px 15px;overflow:visible;white-space:normal;clip-path:none}
+/* Opaque reading surface protects long text from notebook ruling. */
+.hero>div:first-child{background:rgba(255,253,246,.97);box-shadow:0 0 0 12px rgba(255,253,246,.97)}
+@media(max-width:480px){.hero{margin-block:18px 24px;padding:49px 25px}.hero h1{font-size:clamp(40px,10vw,53px);line-height:1.09}.hero>div:first-child{box-shadow:0 0 0 7px rgba(255,253,246,.97)}.stats{margin-top:2px}.records{padding-top:47px}.record{box-shadow:3px 4px 0 #e0d5da}}
