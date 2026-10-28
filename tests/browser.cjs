@@ -13,6 +13,15 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  try{
  const res=await page.goto("http://127.0.0.1:8771/",{waitUntil:"load"});
  if(res.status()!==200)errors.push("HTTP "+res.status());await page.getByRole("heading",{level:1}).waitFor();
+ const skip=page.locator("a.skip,a.skip-link");
+ if(await skip.count()!==1)errors.push("Missing keyboard skip link");
+ else{
+  if(!(await skip.evaluate(el=>getComputedStyle(el).clipPath)).includes("inset"))errors.push("Skip link visible before keyboard focus");
+  await skip.focus();
+  if(await skip.evaluate(el=>getComputedStyle(el).clipPath)!=="none")errors.push("Focused skip link remains hidden");
+  await skip.evaluate(el=>el.blur());
+ }
+
  const entries=page.locator("#entries article"),expected=Number(await page.locator("body").getAttribute("data-demo-count"));
  if(await entries.count()!==0)errors.push("Empty state not empty");
  await page.getByRole("button",{name:"Carregar exemplos fictícios"}).click();
