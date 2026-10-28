@@ -15,6 +15,18 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  const res=await page.goto("http://127.0.0.1:8771/",{waitUntil:"load"});
  if(res.status()!==200)errors.push("HTTP "+res.status());await page.getByRole("heading",{level:1}).waitFor();
  await auditAccessibility(page,errors);
+ const desktopNav=page.locator("header nav.nav-menu");
+ const desktopLinks=desktopNav.locator('a[href^="#"]');
+ if(await desktopLinks.count()!==3)errors.push("Desktop navigation missing product shortcuts");
+ for(const link of await desktopLinks.all()){
+  const id=(await link.getAttribute("href")).slice(1);
+  if(await page.locator('[id="'+id+'"]').count()!==1)errors.push("Desktop nav target #"+id+" missing/duplicated");
+ }
+ if(page.viewportSize().width>650){
+  if(!await desktopNav.isVisible())errors.push("Desktop navigation hidden");
+  else{const href=await desktopLinks.first().getAttribute("href");await desktopLinks.first().click();if(await page.evaluate(()=>location.hash)!==href)errors.push("Desktop anchor click failed");}
+ }else if(await desktopNav.isVisible())errors.push("Desktop nav visible on mobile");
+
  const mobileMenu=page.locator("header details.mobile-nav");
  if(page.viewportSize().width<=650){
   if(!await mobileMenu.isVisible())errors.push("Notebook mobile menu hidden");
