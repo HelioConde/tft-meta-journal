@@ -29,3 +29,6 @@ Visual de caderno de pesquisa: folhas pautadas, identificação de experimento, 
 
 ## Fluxo científico da ficha
 Cada experimento apresenta três etapas visuais: `01 Hipótese inicial`, `02 Observações do lobby` e `03 Próximo teste`. Dados manuais e inseridos via `textContent`. Fichas não prometem causalidade nem métricas oficiais. Playwright verifica a sequência por registro.
+
+## Auditoria de capturas reais Playwright (28/10/2026)
+Leitura da capa do caderno corrigida: camada de papel quase opaca protege o título e parágrafos contra as pautas decorativas. Cabeçalho compacto no mobile e link `Pular para o conteúdo` totalmente recortado fora de foco, revelado ao navegar por teclado. Incluído QA de foco do atalho e mantidos testes das fichas de experimentos.
