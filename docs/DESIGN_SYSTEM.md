@@ -23,3 +23,6 @@ Colocação pertence ao tabuleiro e a médias de amostra manual; diferenças de 
 
 ## QA
 Workflow GitHub Actions executa validação estática e Playwright 5 resoluções com capturas, teste de criação, edição, persistência LocalStorage, exportação, busca, filtros, exclusão e overflow. A publicação usa apenas assets estáticos em `gh-pages/(root)`.
+
+## Experiência exclusiva — caderno de laboratório
+Visual de caderno de pesquisa: folhas pautadas, identificação de experimento, tipografia serifada e fichas de hipóteses. Layout intencionalmente diferente do quadro Kanban, álbum colecionável e planilha financeira.
